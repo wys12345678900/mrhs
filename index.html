@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动物科普系统登录界面</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .background-image {
+      background-image: url('animal-background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="login-container">
+      <h2>动物科普系统登录</h2>
+      <form id="loginForm">
+        <select name="user_type" onchange="handleUserTypeChange(this)">
+          <option value="">请选择身份</option>
+          <option value="user">用户</option>
+          <option value="admin">管理员</option>
+        </select>
+        <input type="text" name="username" placeholder="用户名" required style="display: none;">
+        <input type="password" name="password" placeholder="密码" required style="display: none;">
+        <input type="submit" value="登录" style="display: none;">
+      </form>
+      <p>还没有账号？<a href="register.html">注册</a></p>
+    </div>
+  </div>
+  <script>
+    var form = document.getElementById('loginForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+      var userType = document.querySelector('select[name="user_type"]').value;
+      var username = document.querySelector('input[name="username"]').value;
+      var password = document.querySelector('input[name="password"]').value;
+
+      if (userType === 'user' && username && password) {
+        window.location.href = 'home.html'; // 当选择“用户”并输入用户名和密码后，跳转到home.html
+      } else if (userType === 'admin' && username && password) {
+        window.location.href = 'admin.html'; // 当选择“管理员”并输入用户名和密码后，跳转到admin.html
+      } else {
+        alert('请确保您选择了一个身份并输入了用户名和密码。');
+      }
+    });
+
+    function handleUserTypeChange(selectElement) {
+      var userType = selectElement.value;
+      var usernameInput = document.querySelector('input[name="username"]');
+      var passwordInput = document.querySelector('input[name="password"]');
+      var submitButton = document.querySelector('input[type="submit"]');
+
+      if (userType === 'admin' || userType === 'user') {
+        usernameInput.style.display = 'block';
+        passwordInput.style.display = 'block';
+        submitButton.style.display = 'block';
+      } else {
+        usernameInput.style.display = 'none';
+        passwordInput.style.display = 'none';
+        submitButton.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
