@@ -1,0 +1,166 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动物科普系统 - 首页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .sidebar .section {
+            width: 30%;
+            height: 200px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .sidebar .section:hover {
+            background-color: #45a049;
+        }
+        .sidebar .section h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .sidebar .section p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            text-align: center;
+        }
+        .title {
+            color: #4CAF50;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: flex-start;
+        }
+        .animal-card {
+            width: 48%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .animal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .animal-card p {
+            margin: 10px 0 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">动物科普系统</div>
+    </div>
+    <div class="sidebar">
+        <div class="section" onclick="showContent(1)">
+            <h2>动物趣味百科</h2>
+            <p>在这里,您可以探索各种动物的有趣事实和知识。</p>
+        </div>
+        <div class="section" onclick="showContent(2)">
+            <h2>动物家园</h2>
+            <p>了解不同动物的栖息地和生活习性。</p>
+        </div>
+        <div class="section" onclick="showContent(3)">
+            <h2>动物保护及现状</h2>
+            <p>关注动物保护,了解濒危动物的现状和保护措施。</p>
+        </div>
+    </div>
+    <div class="content" id="content"></div>
+
+    <script>
+        function showContent(sectionId) {
+            var content = document.getElementById("content");
+            if (sectionId === 1) {
+                content.innerHTML = `
+                    <div class="animal-card">
+                        <img src="crane.jpg" alt="丹顶鹤">
+                        <p>丹顶鹤</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="tiger.jpg" alt="东北虎">
+                        <p>东北虎</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="hare.jpg" alt="雪兔">
+                        <p>雪兔</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="squirrel.jpg" alt="松鼠">
+                        <p>松鼠</p>
+                    </div>
+                `;
+            } else if (sectionId === 2) {
+                content.innerHTML = `
+                    <div class="animal-card">
+                        <img src="leopard-cat.jpg" alt="豹猫">
+                        <p>豹猫</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="sable.jpg" alt="紫貂">
+                        <p>紫貂</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="far-eastern-leopard.jpg" alt="远东豹">
+                        <p>远东豹</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="roe-deer.jpg" alt="狍子">
+                        <p>狍子</p>
+                    </div>
+                `;
+            } else if (sectionId === 3) {
+                content.innerHTML = `
+                    <div class="animal-card">
+                        <img src="chinese-merganser.jpg" alt="中华秋沙鸭">
+                        <p>中华秋沙鸭</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="eurasian-lynx.jpg" alt="欧亚猞猁">
+                        <p>欧亚猞猁</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="siberian-chipmunk.jpg" alt="东北花鼠">
+                        <p>东北花鼠</p>
+                    </div>
+                    <div class="animal-card">
+                        <img src="hazel-grouse.jpg" alt="花尾榛鸡">
+                        <p>花尾榛鸡</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

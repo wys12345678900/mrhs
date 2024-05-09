@@ -1,0 +1,107 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 - 动物科普系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>后台管理界面</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>动物名称</th>
+                <th>查看详情</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>东北虎</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>欧亚猞猁</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>丹顶鹤</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>雪兔</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>豹猫</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>花尾榛鸡</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>紫貂</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>狍子</td>
+                <td><a href="#">查看</a></td>
+                <td><span class="delete-btn">删除</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 删除按钮的点击事件
+        var deleteBtns = document.getElementsByClassName('delete-btn');
+        for (var i = 0; i < deleteBtns.length; i++) {
+            deleteBtns[i].addEventListener('click', function() {
+                var row = this.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
